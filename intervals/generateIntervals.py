@@ -1,3 +1,5 @@
+# for lintcode and others
+
 class Interval(object):
     def __init__(self, start, end):
         self.start = start
@@ -13,6 +15,7 @@ def genArrayOfIntervals(arr):
 
 def printIntervalsFromArr(arr):
     count = 1
+    res = []
     for el in arr:
-        print("interval:", count, ", start:", el.start, " end:", el.end)
-        count += 1
+        res.append([el.start, el.end])
+    print(res)
