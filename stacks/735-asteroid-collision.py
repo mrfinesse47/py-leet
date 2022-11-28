@@ -9,14 +9,12 @@ class Solution:
     def asteroidCollision(self, asteroids):
         stack = []
         res = []
-        i = 0
-        length = len(asteroids)
-        while i < length:
-            if asteroids[i] > 0:
-                stack.append(asteroids[i])
+        for ast in asteroids:
+            if ast > 0:
+                stack.append(ast)
             else:  # asteroids[i] < 0
                 while len(stack) > 0:
-                    absAstr = abs(asteroids[i])
+                    absAstr = abs(ast)
                     if stack[-1] > absAstr:
                         break
                     elif stack[-1] < absAstr:
@@ -25,8 +23,7 @@ class Solution:
                         stack.pop()
                         break
                 else:
-                    res.append(asteroids[i])
-            i += 1
+                    res.append(ast)
         res.extend(stack)
         return res
 
