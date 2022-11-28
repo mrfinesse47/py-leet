@@ -1,6 +1,10 @@
+import math
+
+# use pass to not execute
+pass
+
 # multiple assignments
 
-import math
 n, m = 0, "abc"
 
 n, m, z = 0.125, "abc", False
