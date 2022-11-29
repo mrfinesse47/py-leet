@@ -1,11 +1,10 @@
 # 33. Search in Rotated Sorted Array
 class Solution:
-    def search(self, nums, target):
+    def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums)-1
         while l <= r:
             m = l + (r-l)//2
-            m_num = nums[m]
-            if m_num == target:
+            if nums[m] == target:
                 return m
             elif nums[l] <= nums[m]:  # lhs is sorted
                 # between the sorted left side
