@@ -166,8 +166,20 @@ for num in nums:
 for i, n in enumerate(nums):
     print(i, n)
 
+# another way to go in reverse
+
+for i in reversed(range(len(nums))):
+    pass
+
+# and another
+
+for index in range(len(nums)-1, -1, -1):
+    pass
+
+
 # looping through multiple arrays at the same time
 # by zipping
+
 
 print("zipping>>>>>>>>>")
 
