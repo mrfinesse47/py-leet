@@ -209,7 +209,26 @@ print(arr)
 
 # custom sort
 
-arr.sort(key=lambda x: len(x))
+
+# class Solution:
+#     def largestNumber(self, nums):
+#         nums = list(map(lambda n: str(n), nums))
+
+#         def sortfx(s1, s2):
+#             if int(s1+s2) > int(s2+s1):
+#                 return -1  # reverse order on -1 so the lower comes second
+#             elif int(s1+s2) < int(s2+s1):
+#                 return 1  # normal order on 1
+#             else:
+#                 return 0
+
+#         nums.sort(key=functools.cmp_to_key(sortfx))
+#         nums = "".join(nums)
+#         return "0" if int(nums) == 0 else nums
+
+
+# USE cmp_to_key to compare 2 values
+
 # for intervals
 # intervals.sort(key=lambda x: x.start)
 # arr.sort(key=lambda x: (x[0], x[1])) second x[1] is a tie breaker
