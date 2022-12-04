@@ -1,7 +1,7 @@
 # Find the Smallest Common Number
 
 def find_least_common_number(arr1, arr2, arr3):
-    arr1.reverse()  # oops reversing is o(n), could have used iterators
+    arr1.reverse()  # oops reversing is o(n), could have used pointers to track instead of pop operation
     arr2.reverse()
     arr3.reverse()
     while arr1 and arr2 and arr3:
