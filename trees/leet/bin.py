@@ -39,7 +39,7 @@ def traverse(root):
     return
 
 
-root = TreeNode(10)
-insertNode(root, 5)
-insertNode(root, 2)
-traverse(root)
+# root = TreeNode(10)
+# insertNode(root, 5)
+# insertNode(root, 2)
+# traverse(root)

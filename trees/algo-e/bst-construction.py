@@ -49,24 +49,101 @@ class BST:
                 return True
         return False
 
+    def getSuccessor(self, node):
+        # also severs the parents left or right to this node
+        if node.right:
+            prev = node
+            node = node.right
+        if node.left == None:
+            prev.right = None
+            return node
+        while node and node.left:
+            prev = node
+            node = node.left
+        prev.left = None
+        return node
+
+    def getNode(self, value):
+        node = self
+        while node:
+            if node.value == value:
+                return node
+            elif value < node.value:
+                node = node.left
+            else:
+                node = node.right
+        return None
+
     def remove(self, value):
+        if self.left == None and self.right == None:
+            self = None
+            return self
         currentNode = self
         prevLeft = None  # set the other to none if last was right etc
         prevRight = None
-        # if node is root, both prev will be none set new root
-        # find previous node to set its next
-        # if no children just set prev ptr to None
-        # if only one child set prev to the child of the removed node
-        # if 2 children find next greatest ancestor
-        # set the prev for that ancestor to prev of node removed
-        # set prev for the removed node to the ancestor, set left of ancestor to the old nodes left
-        while currentNode and currentNode.value != value:
-            pass
+
+        while currentNode:
+
+            if value == currentNode.value:
+                break
+            elif value < currentNode.value:
+                prevLeft = currentNode
+                prevRight = None
+                currentNode = currentNode.left
+            elif value > currentNode.value:
+                prevRight = currentNode
+                prevLeft = None
+                currentNode = currentNode.right
+
+        if currentNode == None:
+            return self  # node wasnt found
+
+        if currentNode.left and currentNode.right:
+            successor = self.getSuccessor(currentNode)
+            successor.left = currentNode.left
+            successor.right = currentNode.right
+            if prevLeft:
+                prevLeft.left = successor
+            elif prevRight:
+                prevRight.right = successor
+            else:  # removing root
+                self.value = successor.value
+                self.left = successor.left
+                self.right = successor.right
+        elif currentNode.left:  # single child left
+            if prevLeft:
+                prevLeft.left = currentNode.left
+            elif prevRight:
+                prevRight.right = currentNode.left
+            else:
+                currentNode = currentNode.left
+                self.value = currentNode.value
+                self.left = currentNode.left
+                self.right = currentNode.right
+        elif currentNode.right:  # single child right
+            if prevLeft:
+                prevLeft.left = currentNode.right
+            elif prevRight:
+                prevRight.right = currentNode.right
+            else:
+                currentNode = currentNode.right
+                self.value = currentNode.value
+                self.left = currentNode.left
+                self.right = currentNode.right
+        else:  # no children
+            if prevLeft:
+                prevLeft.left = None
+            elif prevRight:
+                prevRight.right = None
 
         return self
 
 
-node = BST(10).insert(5).insert(2).insert(5).insert(1).insert(
-    15).insert(13).insert(12).insert(14).insert(22)
+tree = BST(1).insert(2).insert(3).insert(4)
 
-node.traverse()
+tree = tree.remove(1)
+
+if tree:
+    print("traverse")
+    tree.traverse()
+#print("successor of:", node.value, " is:", tree.getSuccessor(node).value)

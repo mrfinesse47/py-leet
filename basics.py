@@ -361,3 +361,12 @@ sum(arr)  # 15
 # to convert to hex use
 
 print(hex(0)[2:4].upper())
+
+# optional params
+# if using a list be careful
+
+
+def inorderTraversal(self, node, res=None):
+    res = [] if res is None else res
+
+# if the function gets called again it wont release the list from the previous call
