@@ -11,26 +11,39 @@ class TreeNode:
 
 
 class Solution:
-    def inorderTraversal(self, node, res=None):
-        res = [] if res is None else res
-        org = node
+    def inorderTraversal(self, root):
+        def inorder(root):
+            if not root:
+                return
+            inorder(root.left)
+            res.append(root.val)
+            inorder(root.right)
 
-        if node and node.left:
-            node = node.left
-            self.inorderTraversal(node, res)
-        node = org
-        if org:
-            res.append(org.val)
+        res = []
+        inorder(root)
+        return res
 
-        if node and node.right:
-            node = node.right
-            self.inorderTraversal(node, res)
+    def inorderTraversal(self, root):
+        if root == None:
+            return []
+        cur = root
+        stack, res = [], []
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            res.append(cur.val)
+            cur = cur.right
+
         return res
 
 
 root = TreeNode(10)
 tree.insertNode(root, 5)
+tree.insertNode(root, 7)
 tree.insertNode(root, 2)
+tree.insertNode(root, 14)
 
 print(Solution().inorderTraversal(root))
-print(Solution().inorderTraversal(None))
+# print(Solution().inorderTraversal(None))
