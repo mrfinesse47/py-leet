@@ -25,7 +25,6 @@ def insertNode(root, value):
 
 
 def traverse(root):
-    print(root.val)
     if root == None:
         return
     if root.left:
