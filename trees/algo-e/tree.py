@@ -139,11 +139,11 @@ class BST:
         return self
 
 
-tree = BST(1).insert(2).insert(3).insert(4)
+# tree = BST(1).insert(2).insert(3).insert(4)
 
-tree = tree.remove(1)
+# tree = tree.remove(1)
 
-if tree:
-    print("traverse")
-    tree.traverse()
+# if tree:
+#     print("traverse")
+#     tree.traverse()
 #print("successor of:", node.value, " is:", tree.getSuccessor(node).value)
