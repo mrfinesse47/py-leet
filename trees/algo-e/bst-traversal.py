@@ -29,6 +29,6 @@ def postOrderTraverse(tree, array):
 bst = tree.BST(10).insert(5).insert(15).insert(
     2).insert(5).insert(1).insert(22)
 
-# print(inOrderTraverse(bst, []))
-# print(preOrderTraverse(bst, []))
+print(inOrderTraverse(bst, []))
+print(preOrderTraverse(bst, []))
 print(postOrderTraverse(bst, []))
