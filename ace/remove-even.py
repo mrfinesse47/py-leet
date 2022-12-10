@@ -7,6 +7,10 @@ def remove_even(lst):
             lst[i - even_count] = lst[i]
     return lst[0:len(lst)-even_count]
 
+# can also use list comprehension but this allocates a new list but is nice
+
+# return [number for number in lst if number % 2 != 0]
+
 
 my_list = [1, 2, 4, 5, 10, 6, 3]  # my_list = [1,5,3]
 
