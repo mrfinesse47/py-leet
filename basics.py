@@ -370,3 +370,11 @@ def inorderTraversal(self, node, res=None):
     res = [] if res is None else res
 
 # if the function gets called again it wont release the list from the previous call
+
+# scope to access a var outside a function:
+
+# def diameterOfBinaryTree(root):
+#     maxD = 0
+
+#     def max_depth(root):
+#         nonlocal maxD
