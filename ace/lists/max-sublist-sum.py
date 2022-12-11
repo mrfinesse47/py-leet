@@ -18,7 +18,7 @@ lst = [-4, 2, -5, 1, 2, 3, 6, -5]  # 1,2,3,6 ->12
 
 
 class Solution:
-    def maxSubArray(self, lst):
+    def maxSubArray(self, nums: List[int]) -> int:
         sum = 0
         max_sum = float("-inf")
         for el in lst:
