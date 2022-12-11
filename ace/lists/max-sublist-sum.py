@@ -26,7 +26,6 @@ class Solution:
                 # even more negative so the largest sum will only be a single negative number
                 sum = 0
             sum += el
-            r += 1
             max_sum = max(max_sum, sum)
         return max_sum
 
