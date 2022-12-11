@@ -25,3 +25,18 @@ lst = [10, 20, 30, 40, 50]
 k = 3
 
 print(right_rotate(lst, 0))
+
+
+def right_rotate_pythonic(lst, k):
+    # get rotation index
+    if len(lst) == 0:
+        k = 0
+    else:
+        k = k % len(lst)
+    return lst[-k:] + lst[:-k]
+
+
+test = "abcdefghi"
+
+print(test[-5:])  # start at 5 from end to end ie index 4
+print(test[:-5])  # up to and not inluding 5 from end or index 4
