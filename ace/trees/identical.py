@@ -32,9 +32,7 @@ def are_identical(root1, root2):
     elif root1 is None or root2 is None:
         return False
     else:
-        if
-        return False
-        return False if are_identical(root1.left, root2.left) or are_identical(root1.right, root2.right) == False or root1.data != root2.data else True
+        return False if are_identical(root1.left, root2.left) == False or are_identical(root1.right, root2.right) == False or root1.data != root2.data else True
 
 
 root1 = BinaryTree()
