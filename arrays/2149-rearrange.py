@@ -1,6 +1,6 @@
 # 2149. Rearrange Array Elements by Sign
 class Solution:
-    def rearrangeArray(self, nums):
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
         res = [0]*len(nums)
         negi, posi = 1, 0
         for i in range(len(nums)):

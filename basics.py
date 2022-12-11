@@ -142,6 +142,12 @@ arr = [1, 2, 3, 4, 5]
 
 print(arr[1:3])  # does not include index 3 just like a for loop
 
+
+test = "abcdefghi"
+
+print(test[-5:])  # start at 5 from end to end ie index 4
+print(test[:-5])  # up to and not inluding 5 from end or index 4
+
 # unpacking or destructuring
 
 a, b, c = [1, 2, 3]
