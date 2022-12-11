@@ -19,5 +19,5 @@ def validateBst(node, minL=float("-inf"), maxR=float("inf")):
 bst = tree.BST(10).insert(5).insert(5).insert(
     2).insert(1).insert(15).insert(13).insert(14).insert(22)
 
-print(validateBst(bst))
+
 # bst.traverse()
