@@ -243,6 +243,8 @@ print(arr)
 
 # list comprehension
 arr = [i+i for i in range(5)]
+# to filter
+# [e for e in arrayOne if e < el1]
 
 print(arr)  # 0-4
 
