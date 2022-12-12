@@ -5,12 +5,17 @@ class BST:
         self.right = None
 
     def traverse(self):
-
+        print(self.value)
         if self == None:
             return
-        self.traverse(self.left)
-        print(self.value)
-        self.traverse(self.left)
+        if self.left:
+            prev = self
+            self = self.left
+            self.traverse()
+            self = prev
+        if self.right:
+            self = self.right
+            self.traverse()
         return
 
     def insert(self, value):

@@ -1,32 +1,17 @@
-import validate
-
-
+# This is an input class. Do not edit.
 class BST:
     def __init__(self, value, left=None, right=None):
         self.value = value
         self.left = left
         self.right = right
 
-    def traverse(self):
-        print(self.value)
-        if self == None:
-            return
-        if self.left:
-            prev = self
-            self = self.left
-            self.traverse()
-            self = prev
-        if self.right:
-            self = self.right
-            self.traverse()
-        return
-
 
 def reconstructBst(values):
     values.reverse()  # mistake made forgot to reverse for easy pop
+    # also could have use an indexer and not have had to reverse the arr
     root = None
 
-    def traverse(values, node, min=float("-inf"), max=float("inf")):
+    def traverse(values, node=None, min=float("-inf"), max=float("inf")):
         nonlocal root
         if root is None:
             root = BST(values.pop())
@@ -41,9 +26,18 @@ def reconstructBst(values):
         if values[-1] < max and values[-1] >= node.value:  # going right
             node.right = BST(values.pop())
             traverse(values, node.right, node.value, max)
-    traverse(values, root)
+    traverse(values)
     return root
 
 
-res = reconstructBst([10, 17, 19, 18, 4, 5, 2, 1])
-print(validate.validateBst(res))
+def traverse1(node):
+    if node is None:
+        return
+    traverse1(node.left)
+    print(node.value)
+    traverse1(node.right)
+
+
+res = reconstructBst([10, 4, 2, 1, 5, 17, 19, 18])
+traverse1(res)
+# print(validate.validateBst(res))
